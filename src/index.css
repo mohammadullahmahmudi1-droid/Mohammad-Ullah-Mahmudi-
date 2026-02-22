@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Hind Siliguri", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Hind Siliguri", ui-sans-serif, system-ui, sans-serif;
+  
+  --color-gold: #D4AF37;
+  --color-gold-light: #F9F6EE;
+  --color-navy: #0B1C2D;
+}
+
+@layer base {
+  html {
+    font-size: 14px;
+  }
+  
+  body {
+    @apply bg-[#FDFCF9] text-slate-900 font-sans antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-sans font-bold tracking-tight;
+  }
+}
+
+.gold-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.gold-underline::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--color-gold);
+  transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.gold-underline:hover::after {
+  width: 100%;
+}
+
+.masonry-grid {
+  column-count: 1;
+  column-gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .masonry-grid {
+    column-count: 2;
+  }
+}
+
+@media (min-width: 1024px) {
+  .masonry-grid {
+    column-count: 3;
+  }
+}
+
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 1.5rem;
+}
